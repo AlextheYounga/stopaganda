@@ -1,0 +1,84 @@
+{
+    "ap": {
+        "name": "AP",
+        "website": "https://apnews.com/",
+        "twitter_handle": "@AP_Politics"
+    },
+    "afp": {
+        "name": "AFP",
+        "website": "https://www.afp.com/",
+        "twitter_handle": "@AFPFactCheck"
+    },
+    "bbc": {
+        "name": "BBC",
+        "website": "https://www.bbc.com/",
+        "twitter_handle": "@BBCPolitics"
+    }, 
+    "cbc": {
+        "name": "CBC/Radio-Canada",
+        "website": "https://www.cbc.ca/",
+        "twitter_handle": "@CBCPolitics"
+    }, 
+    "ebu": {
+        "name": "European Broadcasting Union (EBU)",
+        "website": "https://www.ebu.ch/",
+        "twitter_handle": "@EBU_HQ"
+    },
+    "facebook": {
+        "name": "Facebook",
+        "website": "https://www.facebook.com",
+        "twitter_handle": "@Meta"
+    }, 
+    "ft": {
+        "name": "Financial Times",
+        "website": "https://www.ft.com/",
+        "twitter_handle": "@FT"
+    }, 
+    "firstdraft": {
+        "name": "First Draft",
+        "website": "https://firstdraftnews.org/",
+        "twitter_handle": "@firstdraftnews"
+    }, 
+    "google": {
+        "name": "Google",
+        "website": "https://news.google.com/",
+        "twitter_handle": "@Google"
+    }, 
+    "youtube": {
+        "name": "YouTube",
+        "website": "https://news.google.com/",
+        "twitter_handle": "@Youtube"
+    }, 
+    "hindu": {
+        "name": "The Hindu",
+        "website": "https://www.thehindu.com/",
+        "twitter_handle": "@the_hindu"
+    }, 
+    "microsoft": {
+        "name": "Microsoft",
+        "website": "https://www.msn.com/",
+        "twitter_handle": "@MSN"
+    }, 
+    "reuters": {
+        "name": "Reuters",
+        "website": "https://www.reuters.com/",
+        "twitter_handle": "@Reuters"
+    }, 
+    "reuters_institute": {
+        "name": "Reuters Institute for the Study of Journalism",
+        "website": "https://reutersinstitute.politics.ox.ac.uk/",
+        "twitter_handle": "@risj_oxford"
+    }, 
+    "twitter": {
+        "name": "Twitter",
+        "website": "https://twitter.com", 
+        "twitter_handle": "@twitter"
+    }, 
+    "wapo": {
+        "name": "The Washington Post",
+        "website": "https://www.washingtonpost.com/",
+        "feed": "http://feeds.washingtonpost.com/rss/politics",
+        "twitter_handle": "@washingtonpost"
+    }
+}
+
