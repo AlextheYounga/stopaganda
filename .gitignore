@@ -267,4 +267,3 @@ output/
 storage/*
 */*.hdf5
 *.hdf5
-core/clouds
