@@ -6,31 +6,12 @@ import json
 from os import path
 import numpy as np
 from PIL import Image
-from wordcloud import WordCloud, STOPWORDS
+
 
 
 def read_json_file(path):
     txtfile = open(path, "r")
     return json.loads(txtfile.read())
-
-
-def create_wordcloud(text, output):
-    currdir = path.dirname(__file__)
-    mask = np.array(Image.open(path.join(currdir, "cloud.png")))
-
-    stopwords = set(STOPWORDS)
-
-    # create wordcloud object
-    wc = WordCloud(background_color="white",
-                   color_func=lambda *args, 
-                   **kwargs: "black",
-                   mask=mask,
-                   stopwords=stopwords)
-
-    wc.generate(text)
-
-    # save wordcloud
-    wc.to_file(path.join(currdir + '/clouds/', output))
 
 
 def print_tabs(data, headers=[], tablefmt='simple'):
@@ -81,3 +62,10 @@ def unzip_folder(directory, filepath):
 
 def strip_urls_from_text(text):
     return re.sub(r'(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?', '', text, flags=re.MULTILINE)
+
+def get_project_path(windows=False):
+    dir_name = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    if (windows):
+        return dir_name.replace("\\", '/')
+    return dir_name
+    
