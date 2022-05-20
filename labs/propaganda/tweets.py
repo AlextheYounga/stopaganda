@@ -2,8 +2,6 @@ from datetime import datetime
 from services.tweets import Tweets
 from core.helpers import *
 from core.database.jsondb import JsonDB
-import glob
-import os
 
 def strip_unwanted(text):
     text = strip_urls_from_text(text)
@@ -12,20 +10,23 @@ def strip_unwanted(text):
         text = no_rt.split(':', 1)[1]
     return text.strip()
 
-def get_latest_tweets_file():
-    list_of_files = glob.glob('data/tweets/*')
-    if (list_of_files):
-        latest_file = max(list_of_files, key=os.path.getctime)
-        return latest_file
-    return list_of_files
-
 def check_if_needs_update():
     today = '{:%Y_%b_%d}'.format(datetime.now())
-    latest = get_latest_tweets_file()
+    latest = get_latest_file('data/tweets/*')
     needs_updating = today not in latest
     return needs_updating
 
-def fetch_tweets():
+def get_tweets():
+    jsondb = JsonDB(get_latest_file('data/tweets/*'))
+    statuses = jsondb.read()
+    tweets = []
+    for key, data in statuses.items():
+        for ind, tweet in enumerate(data):
+            text = tweet['text']
+            tweets.append(text)
+    return tweets
+
+def api_fetch_tweets():
     all_tweets = {}
     tweets = Tweets()
     # Handle Json files

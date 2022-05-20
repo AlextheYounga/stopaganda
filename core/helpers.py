@@ -3,11 +3,8 @@ from tabulate import tabulate
 import zipfile
 import re
 import json
+import glob
 from os import path
-import numpy as np
-from PIL import Image
-
-
 
 def read_json_file(path):
     txtfile = open(path, "r")
@@ -69,3 +66,9 @@ def get_project_path(windows=False):
         return dir_name.replace("\\", '/')
     return dir_name
     
+def get_latest_file(directory):
+    list_of_files = glob.glob(directory)
+    if (list_of_files):
+        latest_file = max(list_of_files, key=os.path.getctime)
+        return latest_file
+    return []

@@ -1,11 +1,9 @@
-import string
 from collections import Counter
-import sys
 import json
+from core.helpers import get_latest_file
 from .utils import *
 
 # python -m labs.word_frequency.word_ranks
-
 
 def remove_unwanted(lexicon):
     new_lexicon = []
@@ -31,7 +29,9 @@ def word_analyzer(lexicon):
 
 lexicon = []
 full_text = ""
+latest_string = get_latest_file('data/strings/*')
 
-txt = open('data/tweets_string.txt', 'r').read()
-lexicon.extend(txt.split())  # converting string into list
-word_analyzer(lexicon)
+if (latest_string):
+    txt = open(latest_string, 'r').read()
+    lexicon.extend(txt.split())  # converting string into list
+    word_analyzer(lexicon)

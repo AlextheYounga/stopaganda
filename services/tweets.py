@@ -8,7 +8,6 @@ import twitter
 import tweepy
 load_dotenv()
 
-
 class Tweets:
     def __init__(self):
         self.auth = tweepy.OAuthHandler(os.environ.get("TWITTER_API_KEY"), os.environ.get("TWITTER_SECRET_KEY"))
