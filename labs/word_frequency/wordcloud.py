@@ -1,8 +1,9 @@
 from core.helpers import *
-from core.database.jsondb import JsonDB
 import datetime
 import string
 from ..propaganda.tweets import api_fetch_tweets, get_tweets
+import numpy as np
+from PIL import Image
 from wordcloud import WordCloud, STOPWORDS
 
 # python -m labs.word_frequency.wordcloud
@@ -14,7 +15,7 @@ def stripped_string(single_string):
     return string_final
 
 def create_wordcloud(text, output):
-    mask = np.array(Image.open(path.join(get_project_path(), 'core', 'cloud.png')))
+    mask = np.array(Image.open(os.path.join(get_project_path(), 'core', 'cloud.png')))
 
     stopwords = set(STOPWORDS)
 
@@ -28,7 +29,8 @@ def create_wordcloud(text, output):
     wc.generate(text)
 
     # save wordcloud
-    wc.to_file(path.join(get_project_path(), 'out', 'clouds', output))
+    wc.to_file(os.path.join(get_project_path(), 'out', 'clouds', output))
+    print('Wordcloud created', output)
 
 
 def main():
@@ -39,6 +41,3 @@ def main():
     # timestamp = str(datetime.datetime.now().timestamp()).replace('.', '_')
     timestamp = '{:%Y_%b_%d}'.format(datetime.datetime.now())
     create_wordcloud(stripped, output=f"news_cloud_{timestamp}.png")
-
-
-main()

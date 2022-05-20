@@ -27,11 +27,13 @@ def word_analyzer(lexicon):
     print(json.dumps(frequency, indent=1))
 
 
-lexicon = []
-full_text = ""
-latest_string = get_latest_file('data/strings/*')
+def main():
+    lexicon = []
+    full_text = ""
+    latest_string = get_latest_file('data/strings/*')
 
-if (latest_string):
-    txt = open(latest_string, 'r').read()
-    lexicon.extend(txt.split())  # converting string into list
-    word_analyzer(lexicon)
+    if (latest_string):
+        txt = open(latest_string, 'r').read()
+        lexicon.extend(txt.split())  # converting string into list
+        word_analyzer(lexicon)
+    

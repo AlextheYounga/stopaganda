@@ -4,10 +4,9 @@ import zipfile
 import re
 import json
 import glob
-from os import path
 
-def read_json_file(path):
-    txtfile = open(path, "r")
+def read_json_file(filepath):
+    txtfile = open(filepath, "r")
     return json.loads(txtfile.read())
 
 
