@@ -1,6 +1,6 @@
 import h5py
 import numpy as np
-from core.helpers import *
+import os
 
 class HDF5:
     def __init__(self, filepath):

@@ -1,7 +1,7 @@
 from collections import Counter
 import json
-from core.helpers import get_latest_file
-from .utils import *
+from helpers.db import get_latest_file
+from helpers.strings import is_preposition, is_article, is_pronoun
 
 # python -m labs.word_frequency.word_ranks
 
@@ -30,7 +30,7 @@ def word_analyzer(lexicon):
 def main():
     lexicon = []
     full_text = ""
-    latest_string = get_latest_file('data/strings/*')
+    latest_string = get_latest_file('database/storage/strings/*')
 
     if (latest_string):
         txt = open(latest_string, 'r').read()

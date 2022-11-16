@@ -1,6 +1,6 @@
-from core.helpers import *
 from datetime import datetime
-from ..propaganda.tweets import get_tweets
+from helpers.db import get_tweets
+import re
 
 # python -m labs.word_frequency.tweets_to_text
 
@@ -14,7 +14,7 @@ def main():
     single_string = str(' '.join(tweets))
     stripped = stripped_string(single_string)
     timestamp = '{:%Y_%b_%d}'.format(datetime.now())
-    with open(f"data/strings/tweets_string_{timestamp}.txt", 'w') as f:
+    with open(f"database/storage/strings/tweets_string_{timestamp}.txt", 'w') as f:
         f.write(stripped)
 
 main()
