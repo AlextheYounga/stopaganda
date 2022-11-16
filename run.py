@@ -95,6 +95,10 @@ def words_controller(subroutine, args):
     if (subroutine == 'rank'):
         from labs.word_frequency.word_ranks import main
         main()
+    
+    if (subroutine == 'topics'):
+        from labs.word_frequency.topics import main
+        main()
 
 
 def main():

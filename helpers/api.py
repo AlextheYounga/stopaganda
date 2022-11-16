@@ -6,10 +6,15 @@ from database.jsondb import JsonDB
 
 def strip_unwanted_text_from_tweet(text):
     text = strip_urls_from_text(text)
-    if (text[0] == 'R' and text[1] == 'T'):
-        no_rt = text.split('RT', 1)[1]
-        text = no_rt.split(':', 1)[1]
-    return text.strip()
+    try:
+        if (text[0] == 'R' and text[1] == 'T'):
+            no_rt = text.split('RT', 1)[1]
+            text = no_rt.split(':', 1)[1]
+        return text.strip()
+            
+    except IndexError:
+        return text.strip()
+    
 
 def check_for_new_tweets():
     today = '{:%Y_%b_%d}'.format(datetime.now())
