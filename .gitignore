@@ -269,3 +269,4 @@ output/
 storage/*
 */*.hdf5
 *.hdf5
+.DS_Store

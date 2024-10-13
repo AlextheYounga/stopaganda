@@ -79,6 +79,66 @@
         "website": "https://www.washingtonpost.com/",
         "feed": "http://feeds.washingtonpost.com/rss/politics",
         "twitter_handle": "@washingtonpost"
+    },
+    "vox": {
+        "name": "Vox",
+        "website": "https://www.vox.com/",
+        "twitter_handle": "@voxdotcom"
+    },
+    "nyt": {
+        "name": "The New York Times",
+        "website": "https://www.nytimes.com/",
+        "twitter_handle": "@nytimes"
+    },
+    "atlantic": {
+        "name": "The Atlantic",
+        "website": "https://www.theatlantic.com/",
+        "twitter_handle": "@TheAtlantic"
+    },
+    "economist": {
+        "name": "The Economist",
+        "website": "https://www.economist.com/",
+        "twitter_handle": "@TheEconomist"
+    },
+    "barrons": {
+        "name": "Barrons",
+        "website": "https://www.barrons.com/",
+        "twitter_handle": "@barronsonline"
+    },
+    "wsj": {
+        "name": "The Wall Street Journal",
+        "website": "https://www.wsj.com/",
+        "twitter_handle": "@WSJ"
+    },
+    "forbes": {
+        "name": "Forbes",
+        "website": "https://www.forbes.com/",
+        "twitter_handle": "@Forbes"
+    },
+    "time": {
+        "name": "TIME",
+        "website": "https://time.com/",
+        "twitter_handle": "@TIME"
+    },
+    "abc": {
+        "name": "ABC",
+        "website": "https://abcnews.go.com/",
+        "twitter_handle": "@ABC"
+    },
+    "newsweek": {
+        "name": "Newsweek",
+        "website": "https://www.newsweek.com/",
+        "twitter_handle": "@Newsweek"
+    },
+    "usatoday": {
+        "name": "USA TODAY",
+        "website": "https://www.usatoday.com/",
+        "twitter_handle": "@USATODAY"
+    },
+    "latimes": {
+        "name": "LA Times",
+        "website": "https://www.latimes.com/",
+        "twitter_handle": "@latimes"
     }
 }
 

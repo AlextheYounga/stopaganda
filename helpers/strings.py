@@ -1,3 +1,5 @@
+import re
+
 def is_article(word):
     articles = ['the', 'an', 'and', 'a',  'is', 'as', 'are', 'that']
     return word.strip().lower() in articles
@@ -64,3 +66,21 @@ def is_pronoun(word):
         'theirselves',
     ]
     return word.strip().lower() in pronouns
+
+def is_unwanted_word(word):
+    unwanted_words = [
+        "has",
+        "was",
+        "says",
+        "will",
+        "our",
+        "be",
+        "more",
+        'breaking',
+        'US',
+    ]
+    return word.strip().lower() in unwanted_words
+
+
+def strip_urls_from_text(text):
+    return re.sub(r'(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?', '', text, flags=re.MULTILINE)

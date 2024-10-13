@@ -1,39 +1,36 @@
 from datetime import datetime
 from services.tweets import Tweets
-from core.helpers import *
-from core.database.jsondb import JsonDB
+from .strings import strip_urls_from_text
+from .db import get_latest_file
+from database.jsondb import JsonDB
 
-def strip_unwanted(text):
+def strip_unwanted_text_from_tweet(text):
     text = strip_urls_from_text(text)
-    if (text[0] == 'R' and text[1] == 'T'):
-        no_rt = text.split('RT', 1)[1]
-        text = no_rt.split(':', 1)[1]
-    return text.strip()
+    try:
+        if (text[0] == 'R' and text[1] == 'T'):
+            no_rt = text.split('RT', 1)[1]
+            text = no_rt.split(':', 1)[1]
+        return text.strip()
+            
+    except IndexError:
+        return text.strip()
+    
 
-def check_if_needs_update():
+def check_for_new_tweets():
     today = '{:%Y_%b_%d}'.format(datetime.now())
-    latest = get_latest_file('data/tweets/*')
+    latest = get_latest_file('database/storage/tweets/*')
     needs_updating = today not in latest
     return needs_updating
 
-def get_tweets():
-    jsondb = JsonDB(get_latest_file('data/tweets/*'))
-    statuses = jsondb.read()
-    tweets = []
-    for key, data in statuses.items():
-        for ind, tweet in enumerate(data):
-            text = tweet['text']
-            tweets.append(text)
-    return tweets
 
 def api_fetch_tweets():
     all_tweets = {}
     tweets = Tweets()
     # Handle Json files
-    if (check_if_needs_update()):
+    if (check_for_new_tweets()):
         timestamp = '{:%Y_%b_%d}'.format(datetime.now())
-        tweets_path = f"data/tweets/tweets_{timestamp}.json"
-        sources = JsonDB('data/sources.json').read()
+        tweets_path = f"database/storage/tweets/tweets_{timestamp}.json"
+        sources = JsonDB('database/storage/sources.json').read()
         jsondb = JsonDB(tweets_path)
 
         for key, info in sources.items():
@@ -52,7 +49,7 @@ def api_fetch_tweets():
                 # Retweets must be handled slightly differently.
                 if (jstatus.get('retweeted_status', False)):
                     text = jstatus['retweeted_status']['full_text']
-                text = strip_unwanted(text) # Get that shit out of here
+                text = strip_unwanted_text_from_tweet(text) # Get that shit out of here
                 status_urls = jstatus['entities'].get('urls', [])
                 urls = [e['url'] for e in status_urls]
 

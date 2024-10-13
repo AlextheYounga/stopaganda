@@ -2,8 +2,8 @@ import os
 import sys
 import colored
 from colored import stylize
-from core.helpers import * 
 from dotenv import load_dotenv
+from helpers.helpers import print_tabs
 load_dotenv()
 
 def list_commands():
@@ -94,6 +94,10 @@ def words_controller(subroutine, args):
 
     if (subroutine == 'rank'):
         from labs.word_frequency.word_ranks import main
+        main()
+    
+    if (subroutine == 'topics'):
+        from labs.word_frequency.topics import main
         main()
 
 

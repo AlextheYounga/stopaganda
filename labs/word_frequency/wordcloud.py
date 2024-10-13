@@ -1,10 +1,12 @@
-from core.helpers import *
 import datetime
 import string
-from ..propaganda.tweets import api_fetch_tweets, get_tweets
+from helpers.api import api_fetch_tweets
+from helpers.db import get_tweets
+from helpers.helpers import *
 import numpy as np
 from PIL import Image
 from wordcloud import WordCloud, STOPWORDS
+import re
 
 # python -m labs.word_frequency.wordcloud
 
@@ -15,7 +17,7 @@ def stripped_string(single_string):
     return string_final
 
 def create_wordcloud(text, output):
-    mask = np.array(Image.open(os.path.join(get_project_path(), 'core', 'cloud.png')))
+    mask = np.array(Image.open(os.path.join(get_project_path(), 'database', 'storage', 'cloud.png')))
 
     stopwords = set(STOPWORDS)
 

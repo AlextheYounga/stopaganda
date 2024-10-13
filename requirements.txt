@@ -21,4 +21,6 @@ torch
 torchvision
 nltk
 transformers
+tensorflow
 keras
+spacy
